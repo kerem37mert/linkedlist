@@ -1,6 +1,9 @@
 package linked_list
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type LinkedList struct {
 	head *Node[any]
@@ -35,7 +38,7 @@ func (L *LinkedList) Traversal() {
 			fmt.Printf("[%v] -> ", temp.data)
 			temp = temp.next
 		}
-		fmt.Printf("nil")
+		fmt.Println("nil")
 	}
 }
 
@@ -53,14 +56,35 @@ func (L *LinkedList) Includes(value any) bool {
 }
 
 // Element Count
-func (L *LinkedList) Count() int {
+func (L *LinkedList) Count() uint {
 	var temp *Node[any] = L.head
-	var count int = 0
+	var count uint = 0
 
 	for temp != nil {
 		count++
 		temp = temp.next
 	}
-
 	return count
+}
+
+// Remove Index
+func (L *LinkedList) RemoveIndex(index uint) error {
+	if L.Count() > index {
+
+		if index == 0 {
+			L.head = L.head.next
+		} else {
+			var temp *Node[any] = L.head
+
+			for i := 1; i != int(index); i++ {
+				temp = temp.next
+			}
+
+			temp.next = temp.next.next
+		}
+
+		return nil
+	} else {
+		return errors.New("Index out of range")
+	}
 }
