@@ -24,7 +24,6 @@ func (L *LinkedList) Add(value any) {
 }
 
 // Linked List Traversal
-
 func (L *LinkedList) Traversal() {
 	if L.head == nil {
 		fmt.Println("Your linked list is empty")
@@ -36,4 +35,16 @@ func (L *LinkedList) Traversal() {
 		}
 		fmt.Printf("nil")
 	}
+}
+
+// Includes
+func (L *LinkedList) Includes(value any) bool {
+	var temp *Node[any] = L.head
+	for temp != nil {
+		if temp.data == value {
+			return true
+		}
+		temp = temp.next
+	}
+	return false
 }
