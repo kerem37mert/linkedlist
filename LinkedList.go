@@ -16,6 +16,7 @@ func (L *LinkedList) Add(value any) {
 		L.head = newNode
 	} else {
 		var temp *Node[any] = L.head
+
 		for temp.next != nil {
 			temp = temp.next
 		}
@@ -29,6 +30,7 @@ func (L *LinkedList) Traversal() {
 		fmt.Println("Your linked list is empty")
 	} else {
 		var temp *Node[any] = L.head
+
 		for temp != nil {
 			fmt.Printf("[%v] -> ", temp.data)
 			temp = temp.next
@@ -40,6 +42,7 @@ func (L *LinkedList) Traversal() {
 // Includes
 func (L *LinkedList) Includes(value any) bool {
 	var temp *Node[any] = L.head
+
 	for temp != nil {
 		if temp.data == value {
 			return true
@@ -47,4 +50,17 @@ func (L *LinkedList) Includes(value any) bool {
 		temp = temp.next
 	}
 	return false
+}
+
+// Element Count
+func (L *LinkedList) Count() int {
+	var temp *Node[any] = L.head
+	var count int = 0
+
+	for temp != nil {
+		count++
+		temp = temp.next
+	}
+
+	return count
 }
