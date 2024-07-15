@@ -1,4 +1,4 @@
-package linked_list
+package linkedlist
 
 func New() *LinkedList {
 	return new(LinkedList)
