@@ -27,6 +27,20 @@ func (L *LinkedList) Add(value any) {
 	}
 }
 
+// First Index Add Nod
+func (L *LinkedList) AddFirst(value any) {
+	var newNode *Node[any] = new(Node[any])
+	newNode.data = value
+	newNode.next = nil
+
+	if L.head == nil {
+		L.head = newNode
+	} else {
+		newNode.next = L.head
+		L.head = newNode
+	}
+}
+
 // Linked List Traversal
 func (L *LinkedList) Traversal() {
 	if L.head == nil {
@@ -92,6 +106,7 @@ func (L *LinkedList) GetFirst() any {
 	}
 }
 
+// Get Last Value
 func (L *LinkedList) GetLast() any {
 	if L.head != nil {
 		var temp *Node[any] = L.head
