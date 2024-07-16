@@ -120,6 +120,22 @@ func (L *LinkedList) GetLast() any {
 	}
 }
 
+// Update Index Value
+func (L *LinkedList) Update(index uint, value any) error {
+	if L.Count() > index {
+		var temp *Node[any] = L.head
+
+		for i := 0; i != int(index); i++ {
+			temp = temp.next
+		}
+		temp.data = value
+
+		return nil
+	} else {
+		return errors.New("index is out of range")
+	}
+}
+
 // Remove Index
 func (L *LinkedList) RemoveIndex(index uint) error {
 	if L.Count() > index {
