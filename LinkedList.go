@@ -196,3 +196,13 @@ func (L *LinkedList) RemoveAll(value any) {
 		}
 	}
 }
+
+// Linked List Foreach
+func (L *LinkedList) ForEach(f func(index uint, value any)) {
+	var temp *Node[any] = L.head
+
+	for i := 0; temp != nil; i++ {
+		f(uint(i), temp.data)
+		temp = temp.next
+	}
+}
