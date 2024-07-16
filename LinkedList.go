@@ -27,7 +27,7 @@ func (L *LinkedList) Add(value any) {
 	}
 }
 
-// First Index Add Nod
+// First Index Add Node
 func (L *LinkedList) AddFirst(value any) {
 	var newNode *Node[any] = new(Node[any])
 	newNode.data = value
