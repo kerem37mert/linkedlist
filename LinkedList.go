@@ -108,5 +108,3 @@ func (L *LinkedList) Remove(value any) {
 		}
 	}
 }
-
-//test
