@@ -103,8 +103,27 @@ func (L *LinkedList) Remove(value any) {
 		for temp.next != nil {
 			if temp.next.data == value {
 				temp.next = temp.next.next
+				return
 			}
 			temp = temp.next
+		}
+	}
+}
+
+// Revome All Value
+func (L *LinkedList) RemoveAll(value any) {
+	for L.head != nil && L.head.data == value {
+		L.head = L.head.next
+	}
+
+	var temp *Node[any] = L.head
+	if temp != nil {
+		for temp.next != nil {
+			if temp.next.data == value {
+				temp.next = temp.next.next
+			} else {
+				temp = temp.next
+			}
 		}
 	}
 }
