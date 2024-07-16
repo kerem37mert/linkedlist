@@ -67,6 +67,21 @@ func (L *LinkedList) Count() uint {
 	return count
 }
 
+// Get Value
+func (L *LinkedList) Get(index uint) any {
+	if L.Count() > index {
+		var temp *Node[any] = L.head
+
+		for i := 0; i != int(index); i++ {
+			temp = temp.next
+		}
+		return temp.data
+
+	} else {
+		return nil
+	}
+}
+
 // Remove Index
 func (L *LinkedList) RemoveIndex(index uint) error {
 	if L.Count() > index {
