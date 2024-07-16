@@ -92,6 +92,19 @@ func (L *LinkedList) GetFirst() any {
 	}
 }
 
+func (L *LinkedList) GetLast() any {
+	if L.head != nil {
+		var temp *Node[any] = L.head
+		for temp.next != nil {
+			temp = temp.next
+		}
+		return temp.data
+
+	} else {
+		return nil
+	}
+}
+
 // Remove Index
 func (L *LinkedList) RemoveIndex(index uint) error {
 	if L.Count() > index {
