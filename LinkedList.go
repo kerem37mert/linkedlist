@@ -83,6 +83,15 @@ func (L *LinkedList) Get(index uint) any {
 	}
 }
 
+// Get First Value
+func (L *LinkedList) GetFirst() any {
+	if L.head != nil {
+		return L.head.data
+	} else {
+		return nil
+	}
+}
+
 // Remove Index
 func (L *LinkedList) RemoveIndex(index uint) error {
 	if L.Count() > index {
