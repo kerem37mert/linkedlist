@@ -88,3 +88,23 @@ func (L *LinkedList) RemoveIndex(index uint) error {
 		return errors.New("Index out of range")
 	}
 }
+
+// Remove First Value
+func (L *LinkedList) Remove(value any) {
+	if L.head == nil {
+		return
+	}
+
+	if L.head.data == value {
+		L.head = L.head.next
+	} else {
+		var temp *Node[any] = L.head
+
+		for temp.next != nil {
+			if temp.next.data == value {
+				temp.next = temp.next.next
+			}
+			temp = temp.next
+		}
+	}
+}
