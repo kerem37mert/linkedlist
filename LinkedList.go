@@ -38,6 +38,7 @@ func (L *LinkedList) Traversal() {
 			fmt.Printf("[%v] -> ", temp.data)
 			temp = temp.next
 		}
+
 		fmt.Println("nil")
 	}
 }
