@@ -1,6 +1,6 @@
 package linkedlist
 
-type Node[T any] struct {
+type node[T any] struct {
 	data T
-	next *Node[T]
+	next *node[T]
 }
