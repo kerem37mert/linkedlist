@@ -6,38 +6,38 @@ import (
 )
 
 type LinkedList struct {
-	head *Node[any]
+	head *node[any]
 }
 
-// Add Node
+// Add node
 func (L *LinkedList) Add(value any) {
-	var newNode *Node[any] = new(Node[any])
-	newNode.data = value
-	newNode.next = nil
+	var newnode *node[any] = new(node[any])
+	newnode.data = value
+	newnode.next = nil
 
 	if L.head == nil {
-		L.head = newNode
+		L.head = newnode
 	} else {
-		var temp *Node[any] = L.head
+		var temp *node[any] = L.head
 
 		for temp.next != nil {
 			temp = temp.next
 		}
-		temp.next = newNode
+		temp.next = newnode
 	}
 }
 
-// First Index Add Node
+// First Index Add node
 func (L *LinkedList) AddFirst(value any) {
-	var newNode *Node[any] = new(Node[any])
-	newNode.data = value
-	newNode.next = nil
+	var newnode *node[any] = new(node[any])
+	newnode.data = value
+	newnode.next = nil
 
 	if L.head == nil {
-		L.head = newNode
+		L.head = newnode
 	} else {
-		newNode.next = L.head
-		L.head = newNode
+		newnode.next = L.head
+		L.head = newnode
 	}
 }
 
@@ -46,7 +46,7 @@ func (L *LinkedList) Traversal() {
 	if L.head == nil {
 		fmt.Println("Your linked list is empty")
 	} else {
-		var temp *Node[any] = L.head
+		var temp *node[any] = L.head
 
 		for temp != nil {
 			fmt.Printf("[%v] -> ", temp.data)
@@ -59,7 +59,7 @@ func (L *LinkedList) Traversal() {
 
 // Includes
 func (L *LinkedList) Includes(value any) bool {
-	var temp *Node[any] = L.head
+	var temp *node[any] = L.head
 
 	for temp != nil {
 		if temp.data == value {
@@ -72,7 +72,7 @@ func (L *LinkedList) Includes(value any) bool {
 
 // Element Count
 func (L *LinkedList) Count() uint {
-	var temp *Node[any] = L.head
+	var temp *node[any] = L.head
 	var count uint = 0
 
 	for temp != nil {
@@ -85,7 +85,7 @@ func (L *LinkedList) Count() uint {
 // Get Value
 func (L *LinkedList) Get(index uint) any {
 	if L.Count() > index {
-		var temp *Node[any] = L.head
+		var temp *node[any] = L.head
 
 		for i := 0; i != int(index); i++ {
 			temp = temp.next
@@ -109,7 +109,7 @@ func (L *LinkedList) GetFirst() any {
 // Get Last Value
 func (L *LinkedList) GetLast() any {
 	if L.head != nil {
-		var temp *Node[any] = L.head
+		var temp *node[any] = L.head
 		for temp.next != nil {
 			temp = temp.next
 		}
@@ -123,7 +123,7 @@ func (L *LinkedList) GetLast() any {
 // Update Index Value
 func (L *LinkedList) Update(index uint, value any) error {
 	if L.Count() > index {
-		var temp *Node[any] = L.head
+		var temp *node[any] = L.head
 
 		for i := 0; i != int(index); i++ {
 			temp = temp.next
@@ -143,7 +143,7 @@ func (L *LinkedList) RemoveIndex(index uint) error {
 		if index == 0 {
 			L.head = L.head.next
 		} else {
-			var temp *Node[any] = L.head
+			var temp *node[any] = L.head
 
 			for i := 1; i != int(index); i++ {
 				temp = temp.next
@@ -167,7 +167,7 @@ func (L *LinkedList) Remove(value any) {
 	if L.head.data == value {
 		L.head = L.head.next
 	} else {
-		var temp *Node[any] = L.head
+		var temp *node[any] = L.head
 
 		for temp.next != nil {
 			if temp.next.data == value {
@@ -185,7 +185,7 @@ func (L *LinkedList) RemoveAll(value any) {
 		L.head = L.head.next
 	}
 
-	var temp *Node[any] = L.head
+	var temp *node[any] = L.head
 	if temp != nil {
 		for temp.next != nil {
 			if temp.next.data == value {
@@ -199,7 +199,7 @@ func (L *LinkedList) RemoveAll(value any) {
 
 // Linked List Foreach
 func (L *LinkedList) ForEach(f func(index uint, value any)) {
-	var temp *Node[any] = L.head
+	var temp *node[any] = L.head
 
 	for i := 0; temp != nil; i++ {
 		f(uint(i), temp.data)
